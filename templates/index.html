@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Attendance System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Face Recognition Attendance System</h1>
+        </header>
+        <main>
+            <section id="video-section">
+                <h2>Camera Feed</h2>
+                <div id="video-container">
+                    <img id="video-feed" src="{{ url_for('video_feed') }}" alt="Video feed">
+                </div>
+            </section>
+            <section id="registration-section">
+                <h2>New Registration</h2>
+                <div class="form-group">
+                    <input type="text" id="id" placeholder="Enter ID">
+                    <input type="text" id="name" placeholder="Enter Name">
+                </div>
+                <div class="button-group">
+                    <button onclick="takeImages()" class="btn btn-primary">Take Images</button>
+                    <button onclick="saveProfile()" class="btn btn-success">Save Profile</button>
+                </div>
+            </section>
+            <section id="attendance-section">
+                <h2>Take Attendance</h2>
+                <button onclick="trackImages()" class="btn btn-info">Take Attendance</button>
+            </section>
+            <section id="attendance-list-section">
+                <h2>Attendance List</h2>
+                <div id="attendanceList">
+                    <!-- Attendance list will be populated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
